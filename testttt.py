@@ -1,5 +1,21 @@
-x=121
-y= str(x)
+class BankAccount:
+    def __init__(self,owner,balance=0):
+        self.owner= owner
+        self.balance= balance
+    def deposit(self,amount):
+        self.balance +=amount
+    def withdraw(self,amount):
+        if amount<self.balance:
+            self.balance -=amount
+        else:
+            print('low balance')
 
-y=x[::-1]
-print(int(x)==int(y))
+    def show(self):
+        print(f'{self.owner}:{self.balance}')
+
+
+acc = BankAccount('Sajad', 10000)
+acc.deposit(50)
+acc.withdraw(30)
+acc.withdraw(500)
+acc.show()
